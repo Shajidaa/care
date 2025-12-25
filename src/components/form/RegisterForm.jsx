@@ -36,93 +36,118 @@ const RegisterForm = () => {
     }
   };
 
-  const inputClass =
-    "p-2 rounded border-2 bg-white text-black focus:outline-green-300";
-
   return (
-    <>
-      <form onSubmit={handleSubmit} className="max-w-lg space-y-5">
-        {/* Name */}
-        <div className="flex flex-col space-y-1">
-          <label>Full Name</label>
-          <input
-            type="text"
-            name="name"
-            placeholder="Enter your official name"
-            required
-            className={inputClass}
-          />
-        </div>
-
-        {/* Email*/}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="flex flex-col space-y-1">
-            <label>Email</label>
+    <div className="card w-full max-w-lg bg-base-100 shadow-xl">
+      <div className="card-body">
+        <h2 className="card-title text-2xl font-bold text-center mb-6">Create Account</h2>
+        
+        <form onSubmit={handleSubmit} className="space-y-4">
+          {/* Name */}
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text font-medium">Full Name</span>
+            </label>
             <input
-              type="email"
-              name="email"
-              placeholder="Email"
+              type="text"
+              name="name"
+              placeholder="Enter your official name"
               required
-              className={inputClass}
-            />
-          </div>
-          <div className="flex flex-col space-y-1">
-            <label>NID No</label>
-            <input
-              type="number"
-              name="nid"
-              placeholder="0345**********"
-              required
-              className={inputClass}
-            />
-          </div>
-        </div>
-
-        {/* Contact No + Password */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="flex flex-col space-y-1">
-            <label>Contact Number</label>
-            <input
-              type="tel"
-              name="contactNo"
-              placeholder="01XXXXXXXXX"
-              required
-              className={inputClass}
+              className="input input-bordered w-full"
             />
           </div>
 
-          <div className="flex flex-col space-y-1">
-            <label>Password</label>
+          {/* Email & NID */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text font-medium">Email</span>
+              </label>
+              <input
+                type="email"
+                name="email"
+                placeholder="your@email.com"
+                required
+                className="input input-bordered w-full"
+              />
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text font-medium">NID Number</span>
+              </label>
+              <input
+                type="number"
+                name="nid"
+                placeholder="0345**********"
+                required
+                className="input input-bordered w-full"
+              />
+            </div>
+          </div>
+
+          {/* Contact & Password */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text font-medium">Contact Number</span>
+              </label>
+              <input
+                type="tel"
+                name="contactNo"
+                placeholder="01XXXXXXXXX"
+                required
+                className="input input-bordered w-full"
+              />
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text font-medium">Password</span>
+              </label>
+              <input
+                type="password"
+                name="password"
+                placeholder="Enter password"
+                required
+                className="input input-bordered w-full"
+              />
+            </div>
+          </div>
+
+          {/* Profile Image */}
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text font-medium">Profile Image URL</span>
+              <span className="label-text-alt text-xs opacity-70">(Optional)</span>
+            </label>
             <input
-              type="password"
-              name="password"
-              placeholder="********"
-              required
-              className={inputClass}
+              type="url"
+              name="image"
+              placeholder="https://example.com/image.jpg"
+              className="input input-bordered w-full"
             />
           </div>
-        </div>
 
-        {/* Image URL */}
-        <div className="flex flex-col space-y-1">
-          <label>Profile Image URL</label>
-          <input
-            type="url"
-            name="image"
-            placeholder="https://example.com/image.jpg"
-            className={inputClass}
-          />
-        </div>
+          {/* Submit Button */}
+          <div className="form-control mt-6">
+            <button
+              type="submit"
+              className="btn btn-primary w-full"
+            >
+              Create Account
+            </button>
+          </div>
+        </form>
 
-        {/* Submit */}
-        <button
-          type="submit"
-          className="w-full bg-gray-600 text-white py-2 rounded hover:bg-green-700 transition"
-        >
-          Register
-        </button>
-      </form>
-    </>
+        {/* Login Link */}
+        <div className="text-center mt-4">
+          <p className="text-sm">
+            Already have an account?{" "}
+            <a href="/login" className="link link-primary font-medium">
+              Sign in here
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
   );
 };
 
