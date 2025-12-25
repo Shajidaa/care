@@ -14,13 +14,13 @@ const Logout = () => {
           <button onClick={() => signOut()} className="btn">
             LogOut
           </button>{" "}
-          <Link className="btn" href={"/profile"}>
+          <Link className="btn " href={"/profile"}>
             Profile
           </Link>
         </>
       ) : (
         <>
-          <Link href={"/login"} className="btn">
+          <Link href={"/login"} className="btn btn-primary">
             LogIn
           </Link>
         </>

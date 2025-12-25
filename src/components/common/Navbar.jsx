@@ -3,11 +3,12 @@ import React from "react";
 import Logout from "../Logout";
 import Logo from "./Logo";
 import Container from "./Container";
+import ThemeToggle from "../ThemeToggle";
 
 const Navbar = () => {
   const links = <></>;
   return (
-    <div className="bg-base-100 ">
+    <div className="bg-base-100 sticky   top-0 right-0 left-0">
       <Container className="navbar shadow-sm">
         <div className="navbar-start">
           <div className="dropdown">
@@ -41,6 +42,7 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end">
+          <ThemeToggle />
           <Link className="btn" href={"/register"}>
             Register
           </Link>

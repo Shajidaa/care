@@ -15,6 +15,7 @@ const RegisterForm = () => {
       name: form.name.value,
       email: form.email.value,
       contactNo: form.contactNo.value,
+      nid: form.nid.value,
       password: form.password.value,
       image: form.image.value,
     };
@@ -61,6 +62,16 @@ const RegisterForm = () => {
               type="email"
               name="email"
               placeholder="Email"
+              required
+              className={inputClass}
+            />
+          </div>
+          <div className="flex flex-col space-y-1">
+            <label>NID No</label>
+            <input
+              type="number"
+              name="nid"
+              placeholder="0345**********"
               required
               className={inputClass}
             />
