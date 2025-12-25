@@ -6,7 +6,11 @@ import Container from "./Container";
 import ThemeToggle from "../ThemeToggle";
 
 const Navbar = () => {
-  const links = <></>;
+  const links = (
+    <>
+      <Link href={"/services"}>Services</Link>
+    </>
+  );
   return (
     <div className="bg-base-100 sticky   top-0 right-0 left-0">
       <Container className="navbar shadow-sm">

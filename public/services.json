@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "category": "Baby Care",
+        "title": "Professional Infant & Toddler Care",
+        "description": "Comprehensive care for newborns and toddlers, including feeding, sleep monitoring, and developmental play.",
+        "image": "https://i.ibb.co.com/B2LT8mc7/vitaly-gariev-BD8i-K0lmqc0-unsplash.jpg",
+        "features": [
+            "Newborn care (0-12 months)",
+            "Potty training assistance",
+            "Educational activities",
+            "Meal preparation and feeding"
+        ],
+        "availability": "24/7",
+        "staff_qualification": "Certified Pediatric First Aid & CPR"
+    },
+    {
+        "id": 2,
+        "category": "Elderly Service",
+        "title": "Senior Companion & Assisted Living",
+        "description": "Dedicated support for seniors to maintain independence and quality of life within their own homes.",
+        "image": "https://i.ibb.co.com/B2LT8mc7/vitaly-gariev-BD8i-K0lmqc0-unsplash.jpg",
+        "features": [
+            "Medication reminders",
+            "Mobility assistance",
+            "Companionship and social engagement",
+            "Light housekeeping and errands"
+        ],
+        "availability": "Hourly or Live-in",
+        "staff_qualification": "Geriatric Care Specialist"
+    },
+    {
+        "id": 3,
+        "category": "Sick People Service",
+        "title": "Patient Care & Recovery Support",
+        "description": "Specialized non-medical and semi-medical support for individuals recovering from surgery or managing chronic illness.",
+        "image": "https://i.ibb.co.com/Sws5Vj6C/alexander-grey-7-PZ8-Gb-pma-A-unsplash.jpg",
+        "features": [
+            "Post-operative recovery support",
+            "Vital sign monitoring",
+            "Wound care assistance",
+            "Coordination with medical providers"
+        ],
+        "availability": "On-demand / Scheduled",
+        "staff_qualification": "Licensed Practical Nurse (LPN) or Certified Nursing Assistant (CNA)"
+    }
+]
