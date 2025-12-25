@@ -3,11 +3,11 @@ import Link from "next/link";
 import React from "react";
 
 const ServiceCard = ({ post }) => {
-  const { image, title, category } = post;
+  const { image, id, title, category } = post;
 
   return (
     <Link
-      href={`/`}
+      href={`/services/${id}`}
       className=" border  w-80 bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300"
     >
       {/* Image */}
