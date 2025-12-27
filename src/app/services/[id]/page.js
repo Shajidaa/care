@@ -28,6 +28,7 @@ const ServiceDetails = async ({ params }) => {
     features,
     availability,
     staff_qualification,
+    cost,
   } = service;
 
   return (
@@ -59,7 +60,7 @@ const ServiceDetails = async ({ params }) => {
                 alt={title}
                 width={600}
                 height={400}
-                className="w-full h-96 object-cover"
+                className="w-full h-11/12 object-cover"
               />
               <div className="absolute top-4 left-4">
                 <div className="badge badge-primary badge-lg font-medium">
@@ -100,27 +101,44 @@ const ServiceDetails = async ({ params }) => {
               </div>
             </div>
 
-            {/* Features */}
-            <div className="card bg-base-100 shadow-md">
-              <div className="card-body">
-                <h3 className="card-title text-xl mb-4">Service Features</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {features.map((feature, index) => (
-                    <div key={index} className="flex items-start">
-                      <svg
-                        className="w-5 h-5 text-success mt-0.5 mr-3 shrink-0"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                      <span className="text-base-content/90">{feature}</span>
+            {/* Cost Card */}
+            <div className="card bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 shadow-lg">
+              <div className="card-body p-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-xl font-bold text-base-content mb-2">
+                      Service Cost
+                    </h3>
+                    <p className="text-base-content/70 text-sm">
+                      Starting price for this service
+                    </p>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-3xl font-bold text-primary">
+                      ৳{cost}
                     </div>
-                  ))}
+                    <div className="text-sm text-base-content/60">
+                      per service
+                    </div>
+                  </div>
+                </div>
+                <div className="divider my-2"></div>
+                <div className="flex items-center text-sm text-base-content/70">
+                  <svg
+                    className="w-4 h-4 mr-2 text-info"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  Final cost may vary based on specific requirements and
+                  duration
                 </div>
               </div>
             </div>
@@ -147,7 +165,30 @@ const ServiceDetails = async ({ params }) => {
             </div>
           </div>
         </div>
-
+        {/* Features */}
+        <div className="card bg-base-100 shadow-md">
+          <div className="card-body">
+            <h3 className="card-title text-xl mb-4">Service Features</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {features.map((feature, index) => (
+                <div key={index} className="flex items-start">
+                  <svg
+                    className="w-5 h-5 text-success mt-0.5 mr-3 shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="text-base-content/90">{feature}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
         {/* Additional Information */}
         <div className="mt-12">
           <div className="card bg-base-100 shadow-xl">
