@@ -12,7 +12,8 @@
             "Meal preparation and feeding"
         ],
         "availability": "24/7",
-        "staff_qualification": "Certified Pediatric First Aid & CPR"
+        "staff_qualification": "Certified Pediatric First Aid & CPR",
+        "cost":3000
     },
     {
         "id": 2,
@@ -27,7 +28,8 @@
             "Light housekeeping and errands"
         ],
         "availability": "Hourly or Live-in",
-        "staff_qualification": "Geriatric Care Specialist"
+        "staff_qualification": "Geriatric Care Specialist",
+         "cost":5000
     },
     {
         "id": 3,
@@ -42,6 +44,7 @@
             "Coordination with medical providers"
         ],
         "availability": "On-demand / Scheduled",
-        "staff_qualification": "Licensed Practical Nurse (LPN) or Certified Nursing Assistant (CNA)"
+        "staff_qualification": "Licensed Practical Nurse (LPN) or Certified Nursing Assistant (CNA)",
+            "cost":4000
     }
 ]

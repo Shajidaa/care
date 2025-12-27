@@ -7,7 +7,7 @@
 }
 
 [data-theme="light"] {
-  --color-primary: #26ccc2;
+  --color-primary: #01c7ba;
   --color-secondary: #41294a;
   --color-error: #f72c5b;
   --color-neutral: #0f0e0e;
@@ -18,8 +18,7 @@
 
 [data-theme="dark"] {
 
-  default: false;
-  --color-primary: #41294a;
+  --color-primary: #ee6631;
   --color-secondary: #0e2a4e;
   --color-neutral: #0f0e0e;
   --color-error: #f72c5b;
@@ -28,7 +27,3 @@
 }
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
-
-/* .btn {
-  @apply px-5 py-2 bg-sky-100 text-black font-bold rounded shadow shadow-sky-100 cursor-pointer hover:bg-sky-200 hover:scale-105 duration-200 active:scale-95 hover:shadow-xl active:shadow-none active:bg-white disabled:text-gray-400 disabled:active:bg-sky-100 disabled:hover:scale-100 disabled:hover:shadow-none disabled:hover:bg-sky-100 disabled:cursor-auto
-} */

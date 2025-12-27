@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Logout = () => {
   const session = useSession();
-  console.log(session);
+  // console.log(session);
 
   return (
     <>
