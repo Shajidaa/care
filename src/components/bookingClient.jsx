@@ -121,7 +121,6 @@ const BookingClient = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-base-200 via-base-100 to-base-200 py-12">
       <div className="max-w-5xl mx-auto px-4">
-        {/* Animated Header */}
         <div className="text-center mb-12 animate-fade-in">
           <div className="inline-block p-2 bg-primary/10 rounded-full mb-4">
             <svg
