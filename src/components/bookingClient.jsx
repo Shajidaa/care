@@ -1,6 +1,7 @@
 "use client";
 
 import { handleBooking } from "@/action/service";
+import axios from "axios";
 import { useSession } from "next-auth/react";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -86,15 +87,34 @@ const BookingClient = () => {
       if (result.isConfirmed) {
         //send the data to mongodb
 
-        const response = await handleBooking(finalData);
+        // const response = await handleBooking(finalData);
 
-        if (response.success) {
-          Swal.fire("Success!", "Your booking has been confirmed.", "success");
-          e.target.reset();
-        } else {
-          Swal.fire("Error", "Something went wrong. Try again.", "error");
+        // if (response.success) {
+        //   Swal.fire("Success!", "Your booking has been confirmed.", "success");
+        //   e.target.reset();
+        // } else {
+        //   Swal.fire("Error", "Something went wrong. Try again.", "error");
+        // }
+        // console.log(result);
+        try {
+          const response = await axios.post("/api/booking", finalData);
+
+          if (response.data.success) {
+            Swal.fire(
+              "Success!",
+              "Your booking has been confirmed.",
+              "success"
+            );
+            e.target.reset();
+          }
+        } catch (error) {
+          console.error("Axios Error:", error);
+          Swal.fire(
+            "Error",
+            error.response?.data?.message || "Something went wrong",
+            "error"
+          );
         }
-        console.log(result);
       }
     });
   };
