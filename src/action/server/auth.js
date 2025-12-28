@@ -49,6 +49,7 @@ export const loginUser = async (payload) => {
       id: user._id.toString(),
       name: user.name,
       email: user.email,
+      image: user.image,
       role: user.role,
     };
   }

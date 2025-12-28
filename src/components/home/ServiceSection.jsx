@@ -51,7 +51,7 @@ const ServiceSection = async () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.slice(0, 6).map((service, index) => (
             <ServiceCard key={service.id || index} post={service} />
           ))}
@@ -60,7 +60,7 @@ const ServiceSection = async () => {
         <div className="text-center mt-12">
           <Link
             href="/services"
-            className="btn btn-outline btn-lg px-8 hover:btn-primary transition-all duration-300"
+            className="btn btn-outline btn-lg px-8 hover:btn-secondary transition-all duration-300"
           >
             View All Services
             <svg

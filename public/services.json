@@ -47,4 +47,21 @@
         "staff_qualification": "Licensed Practical Nurse (LPN) or Certified Nursing Assistant (CNA)",
             "cost":4000
     }
+   ,
+    {
+        "id": 4,
+        "category": "Sick People Service",
+        "title": "Patient Care & Recovery Support",
+        "description": "Specialized non-medical and semi-medical support for individuals recovering from surgery or managing chronic illness.",
+        "image": "https://i.ibb.co.com/Sws5Vj6C/alexander-grey-7-PZ8-Gb-pma-A-unsplash.jpg",
+        "features": [
+            "Post-operative recovery support",
+            "Vital sign monitoring",
+            "Wound care assistance",
+            "Coordination with medical providers"
+        ],
+        "availability": "On-demand / Scheduled",
+        "staff_qualification": "Licensed Practical Nurse (LPN) or Certified Nursing Assistant (CNA)",
+            "cost":4000
+    }
 ]
