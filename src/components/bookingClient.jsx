@@ -97,7 +97,7 @@ const BookingClient = () => {
         // }
         // console.log(result);
         try {
-          const response = await axios.post("/api/booking", finalData);
+          const response = await axios.post("/api/bookings", finalData);
 
           if (response.data.success) {
             Swal.fire(
@@ -251,6 +251,7 @@ const BookingClient = () => {
                       name="name"
                       defaultValue={session.data?.user?.name || ""}
                       required
+                      readOnly
                     />
                   </div>
 
@@ -280,6 +281,7 @@ const BookingClient = () => {
                       name="email"
                       defaultValue={session.data?.user?.email || ""}
                       required
+                      readOnly
                     />
                   </div>
 

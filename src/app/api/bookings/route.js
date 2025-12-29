@@ -24,16 +24,31 @@ export async function POST(request) {
   }
 }
 
+// export async function GET(request) {
+//   try {
+//     const db = connect(collections.Bookings);
+//     const bookings = await db.find({}).toArray();
+
+//     return NextResponse.json({ success: true, bookings }, { status: 200 });
+//   } catch (error) {
+//     return NextResponse.json(
+//       { success: false, error: error.message },
+//       { status: 500 }
+//     );
+//   }
+// }
+// app/api/bookings/route.js
+
 export async function GET(request) {
   try {
-    const db = connect(collections.Bookings);
-    const bookings = await db.find({}).toArray();
+    const { searchParams } = new URL(request.url);
+    const email = searchParams.get("email");
 
-    return NextResponse.json({ success: true, bookings }, { status: 200 });
+    const db = connect(collections.Bookings);
+    const bookings = await db.find({ email }).toArray();
+
+    return NextResponse.json({ bookings });
   } catch (error) {
-    return NextResponse.json(
-      { success: false, error: error.message },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

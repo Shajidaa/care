@@ -8,11 +8,18 @@ import ThemeToggle from "../ThemeToggle";
 const Navbar = () => {
   const links = (
     <>
-      <Link 
-        href={"/services"} 
+      <Link
+        href={"/services"}
         className="relative px-4 py-2 text-base font-medium transition-all duration-300 hover:text-primary hover:scale-105 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
       >
         Services
+      </Link>
+
+      <Link
+        href={"/myBookings"}
+        className="relative px-4 py-2 text-base font-medium transition-all duration-300 hover:text-primary hover:scale-105 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+      >
+        My Bookings
       </Link>
     </>
   );
@@ -23,9 +30,9 @@ const Navbar = () => {
         <div className="navbar-start">
           {/* Mobile menu button with enhanced styling */}
           <div className="dropdown">
-            <div 
-              tabIndex={0} 
-              role="button" 
+            <div
+              tabIndex={0}
+              role="button"
               className="btn btn-ghost lg:hidden hover:bg-primary/10 transition-all duration-300 hover:scale-110"
             >
               <svg
@@ -48,11 +55,19 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content bg-base-100/95 backdrop-blur-md rounded-2xl z-[1] mt-3 w-56 p-3 shadow-xl border border-base-300/50 animate-in slide-in-from-top-2 duration-200"
             >
               <li className="mb-1">
-                <Link 
-                  href={"/services"} 
+                <Link
+                  href={"/services"}
                   className="rounded-xl px-4 py-3 text-base font-medium transition-all duration-300 hover:bg-primary/10 hover:text-primary hover:scale-105"
                 >
                   Services
+                </Link>
+              </li>
+              <li className="mb-1">
+                <Link
+                  href={"/myBookings"}
+                  className="rounded-xl px-4 py-3 text-base font-medium transition-all duration-300 hover:bg-primary/10 hover:text-primary hover:scale-105"
+                >
+                  My Bookings
                 </Link>
               </li>
             </ul>
@@ -70,8 +85,8 @@ const Navbar = () => {
         {/* Right side with enhanced button styling */}
         <div className="navbar-end gap-2">
           <ThemeToggle />
-          <Link 
-            className="btn btn-primary btn-sm px-6 rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25" 
+          <Link
+            className="btn btn-primary btn-sm px-6 rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25"
             href={"/register"}
           >
             Register
