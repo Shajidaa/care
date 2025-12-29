@@ -183,7 +183,7 @@ const BookingClient = () => {
 
               <div className="flex items-center p-3 bg-info/10 rounded-lg border border-info/20 relative z-10">
                 <svg
-                  className="w-5 h-5 mr-3 text-info flex-shrink-0"
+                  className="w-5 h-5 mr-3 text-info shrink-0"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
