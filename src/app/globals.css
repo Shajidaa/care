@@ -8,7 +8,7 @@
 
 [data-theme="light"] {
   --color-primary: #01c7ba;
-  --color-secondary: #41294a;
+  --color-secondary: #440236;
   --color-error: #f72c5b;
   --color-neutral: #0f0e0e;
   --color-white: #f9f8f6;
@@ -19,7 +19,7 @@
 [data-theme="dark"] {
 
   --color-primary: #ee6631;
-  --color-secondary: #0e2a4e;
+  --color-secondary: #50045f;
   --color-neutral: #0f0e0e;
   --color-error: #f72c5b;
   --color-white: #f9f8f6;
