@@ -1,20 +1,23 @@
 import React from "react";
 import Container from "../common/Container";
+import Title from "../Title";
 
 const Feautres = () => {
   return (
     <div>
       {/* Features Section */}
-      <section className="py-20 bg-gradient-to-r from-primary/5 to-secondary/5">
+      <section className="py-20 ">
         <Container className="px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-5">
             <h2 className="text-4xl lg:text-5xl font-bold text-base-content mb-4">
               Why Choose <span className="text-primary">Our Care</span>
             </h2>
-            <p className="text-xl text-base-content/70 max-w-3xl mx-auto">
-              We&apos;re committed to providing the highest quality care with
-              compassion and professionalism
-            </p>
+            <Title
+              description="We're committed to providing the highest quality care with
+              compassion and professionalism"
+              buttonText=""
+              href="#"
+            ></Title>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -101,7 +104,7 @@ const Feautres = () => {
               },
             ].map((feature, index) => (
               <div key={index} className="text-center group">
-                <div className="w-16 h-16 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-6 text-white shadow-xl group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-6 text-white shadow-xl group-hover:scale-110 transition-transform duration-300">
                   {feature.icon}
                 </div>
                 <h3 className="text-xl font-bold text-base-content mb-3">

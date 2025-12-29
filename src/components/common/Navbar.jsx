@@ -4,7 +4,7 @@ import Link from "next/link";
 import React from "react";
 
 import NavLink from "./NavLink";
-import Logout from "../Logout";
+import ProfileDropdown from "../Logout";
 import Logo from "./Logo";
 import Container from "./Container";
 import ThemeToggle from "../ThemeToggle";
@@ -41,7 +41,7 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content bg-base-100/95 backdrop-blur-md rounded-2xl z-[1] mt-3 w-56 p-3 shadow-xl border border-base-300/50"
             >
               <NavLink href="/services">Services</NavLink>
-              <NavLink href="/myBookings">My Bookings</NavLink>
+              <NavLink href="/about">About</NavLink>
             </ul>
           </div>
           <Logo />
@@ -51,20 +51,15 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <div className="flex items-center gap-6">
             <NavLink href="/services">Services</NavLink>
-            <NavLink href="/myBookings">My Bookings</NavLink>
+            <NavLink href="/about">About</NavLink>
           </div>
         </div>
 
         {/* Right side */}
         <div className="navbar-end gap-2">
           <ThemeToggle />
-          <Link
-            className="btn btn-primary btn-sm px-6 rounded-full font-semibold transition-all duration-300 hover:scale-105"
-            href={"/register"}
-          >
-            Register
-          </Link>
-          <Logout />
+
+          <ProfileDropdown />
         </div>
       </Container>
     </div>
