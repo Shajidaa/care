@@ -32,7 +32,7 @@ const ServiceDetails = async ({ params }) => {
   } = service;
 
   return (
-    <div className="min-h-screen bg-base-200">
+    <div className="min-h-screen pt-15 bg-base-200">
       <Container className="py-8">
         {/* Breadcrumb */}
         <div className="breadcrumbs text-sm mb-6">

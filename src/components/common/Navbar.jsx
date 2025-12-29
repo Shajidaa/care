@@ -42,6 +42,9 @@ const Navbar = () => {
             >
               <NavLink href="/services">Services</NavLink>
               <NavLink href="/about">About</NavLink>
+              <ThemeToggle />
+
+              <ProfileDropdown />
             </ul>
           </div>
           <Logo />
@@ -56,7 +59,7 @@ const Navbar = () => {
         </div>
 
         {/* Right side */}
-        <div className="navbar-end gap-2">
+        <div className="navbar-end hidden lg:flex gap-2">
           <ThemeToggle />
 
           <ProfileDropdown />

@@ -8,7 +8,7 @@ const ServiceCard = ({ post }) => {
   return (
     <Link
       href={`/services/${id}`}
-      className="w-80  bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 group"
+      className="max-w-80  bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 group"
     >
       {/* Image */}
       <figure className="relative  overflow-hidden">

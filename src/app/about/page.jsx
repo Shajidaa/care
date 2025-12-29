@@ -1,4 +1,5 @@
 import Container from "@/components/common/Container";
+import Proud from "@/components/Proud";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -51,14 +52,14 @@ const AboutPage = () => {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-secondary/30"></div>
+          <div className="absolute inset-0 bg-secondary/10"></div>
           <div className="absolute inset-0 "></div>
         </div>
         <Container className="relative z-10 pt-10  px-6 lg:px-8">
           <div className="flex items-center min-h-[40vh] py-20">
             <div className="max-w-3xl text-white">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                <span className="block">About</span>
+                <span className="block text-secondary">About</span>
               </h1>
               {/* Breadcrumbs */}
               <div className="breadcrumbs text-sm mb-6 text-white/80">
@@ -88,7 +89,7 @@ const AboutPage = () => {
                 <h2 className="text-3xl lg:text-4xl font-bold text-base-content mb-4">
                   Our Story
                 </h2>
-                <div className="w-16 h-1 bg-gradient-to-r from-primary to-secondary rounded-full mb-6"></div>
+                <div className="w-16 h-1  rounded-full mb-6"></div>
               </div>
 
               <p className="text-lg text-base-content/80 leading-relaxed">
@@ -100,10 +101,11 @@ const AboutPage = () => {
               </p>
 
               <p className="text-lg text-base-content/80 leading-relaxed">
-                Today, we've grown into a trusted healthcare partner, serving
-                hundreds of families across the region. Our commitment remains
-                unchanged: delivering exceptional care that puts patients first,
-                combining medical expertise with genuine compassion.
+                Today, we&apos;ve grown into a trusted healthcare partner,
+                serving hundreds of families across the region. Our commitment
+                remains unchanged: delivering exceptional care that puts
+                patients first, combining medical expertise with genuine
+                compassion.
               </p>
 
               <div className="pt-4">
@@ -117,7 +119,7 @@ const AboutPage = () => {
             </div>
 
             <div className="relative">
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl"></div>
+              <div className="aspect-4/3 rounded-2xl overflow-hidden shadow-2xl"></div>
               <div className="absolute -bottom-6 -right-6 bg-primary/90 backdrop-blur-sm rounded-2xl p-6 shadow-xl">
                 <div className="text-white text-center">
                   <div className="text-2xl font-bold">5+</div>
@@ -128,9 +130,9 @@ const AboutPage = () => {
           </div>
         </Container>
       </section>
-
+      <Proud></Proud>
       {/* Stats Section */}
-      <section className="py-16 bg-gradient-to-r from-primary/10 to-secondary/10">
+      <section className="py-16 ">
         <Container className="px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-base-content mb-4">
@@ -157,101 +159,6 @@ const AboutPage = () => {
                 </div>
               </div>
             ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* Our Values Section */}
-      <section className="py-20 bg-base-100">
-        <Container className="px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-base-content mb-4">
-              Our Core Values
-            </h2>
-            <p className="text-lg text-base-content/70 max-w-3xl mx-auto">
-              The principles that guide everything we do and shape the way we
-              deliver care to our clients.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {values.map((value, index) => (
-              <div
-                key={index}
-                className="group p-8 bg-base-200/50 rounded-2xl hover:bg-base-200 transition-all duration-300 hover:scale-105"
-              >
-                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                  {value.icon}
-                </div>
-                <h3 className="text-xl font-bold text-base-content mb-3">
-                  {value.title}
-                </h3>
-                <p className="text-base-content/80 leading-relaxed">
-                  {value.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* Team Section */}
-      {/* <section className="py-20 bg-gradient-to-br from-base-200 to-base-300">
-        <Container className="px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-base-content mb-4">
-              Meet Our Leadership Team
-            </h2>
-            <p className="text-lg text-base-content/70 max-w-3xl mx-auto">
-              Experienced professionals dedicated to ensuring the highest
-              quality of care and service excellence.
-            </p>
-          </div>
-
-          {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {team.map((member, index) => (
-              <div key={index} className="group text-center">
-                <div className="relative mb-6">
-                  <div className="w-48 h-48 mx-auto rounded-full overflow-hidden shadow-xl group-hover:shadow-2xl transition-shadow duration-300"></div>
-                </div>
-                <h3 className="text-xl font-bold text-base-content mb-2">
-                  {member.name}
-                </h3>
-                <p className="text-primary font-semibold mb-3">{member.role}</p>
-                <p className="text-base-content/70 leading-relaxed">
-                  {member.description}
-                </p>
-              </div>
-            ))}
-          </div> 
-        </Container>
-      </section> */}
-
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-primary to-secondary">
-        <Container className="px-4 sm:px-6 lg:px-8">
-          <div className="text-center text-white">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-              Ready to Experience Quality Care?
-            </h2>
-            <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-              Join hundreds of satisfied clients who trust us with their
-              healthcare needs. Let us be your partner in health and wellness.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/services"
-                className="btn btn-outline btn-lg px-8 border-white text-white hover:bg-white hover:text-primary transition-all duration-300"
-              >
-                View Our Services
-              </Link>
-              <Link
-                href="/register"
-                className="btn btn-lg px-8 bg-white text-primary hover:bg-white/90 transition-all duration-300"
-              >
-                Get Started Today
-              </Link>
-            </div>
           </div>
         </Container>
       </section>
