@@ -42,6 +42,7 @@ const Navbar = () => {
             >
               <NavLink href="/services">Services</NavLink>
               <NavLink href="/about">About</NavLink>
+              <NavLink href="/contact">Contact</NavLink>
               <ThemeToggle />
 
               <ProfileDropdown />
@@ -55,6 +56,7 @@ const Navbar = () => {
           <div className="flex items-center gap-6">
             <NavLink href="/services">Services</NavLink>
             <NavLink href="/about">About</NavLink>
+            <NavLink href="/contact">Contact</NavLink>
           </div>
         </div>
 
