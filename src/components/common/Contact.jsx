@@ -1,5 +1,6 @@
 import React from "react";
 import Container from "./Container";
+import CBtn from "../Buttons/CBtn";
 
 const Contact = () => {
   return (
@@ -15,14 +16,12 @@ const Contact = () => {
 
       {/* Content */}
       <Container className="relative z-10  text-start text-white px-4">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
-        <p className="text-lg md:text-xl text-start">
+        <h1 className="text-4xl md:text-5xl font-bold  mb-4">Contact Us</h1>
+        <p className="text-lg md:text-xl my-3 text-start">
           Have questions or need help? We’re here to support you anytime.
         </p>
 
-        <button className="mt-6 px-6 py-3 bg-blue-600 hover:bg-blue-700 transition rounded-lg text-white font-semibold">
-          Get in Touch
-        </button>
+        <CBtn href={"contact"} buttonText="Get in Touch"></CBtn>
       </Container>
     </section>
   );

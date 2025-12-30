@@ -1,67 +1,162 @@
 [
-    {
-        "id": 1,
-        "category": "Baby Care",
-        "title": "Professional Infant & Toddler Care",
-        "description": "Comprehensive care for newborns and toddlers, including feeding, sleep monitoring, and developmental play.",
-        "image": "https://i.ibb.co.com/B2LT8mc7/vitaly-gariev-BD8i-K0lmqc0-unsplash.jpg",
-        "features": [
-            "Newborn care (0-12 months)",
-            "Potty training assistance",
-            "Educational activities",
-            "Meal preparation and feeding"
-        ],
-        "availability": "24/7",
-        "staff_qualification": "Certified Pediatric First Aid & CPR",
-        "cost":3000
-    },
-    {
-        "id": 2,
-        "category": "Elderly Service",
-        "title": "Senior Companion & Assisted Living",
-        "description": "Dedicated support for seniors to maintain independence and quality of life within their own homes.",
-        "image": "https://i.ibb.co.com/B2LT8mc7/vitaly-gariev-BD8i-K0lmqc0-unsplash.jpg",
-        "features": [
-            "Medication reminders",
-            "Mobility assistance",
-            "Companionship and social engagement",
-            "Light housekeeping and errands"
-        ],
-        "availability": "Hourly or Live-in",
-        "staff_qualification": "Geriatric Care Specialist",
-         "cost":5000
-    },
-    {
-        "id": 3,
-        "category": "Sick People Service",
-        "title": "Patient Care & Recovery Support",
-        "description": "Specialized non-medical and semi-medical support for individuals recovering from surgery or managing chronic illness.",
-        "image": "https://i.ibb.co.com/Sws5Vj6C/alexander-grey-7-PZ8-Gb-pma-A-unsplash.jpg",
-        "features": [
-            "Post-operative recovery support",
-            "Vital sign monitoring",
-            "Wound care assistance",
-            "Coordination with medical providers"
-        ],
-        "availability": "On-demand / Scheduled",
-        "staff_qualification": "Licensed Practical Nurse (LPN) or Certified Nursing Assistant (CNA)",
-            "cost":4000
-    }
-   ,
-    {
-        "id": 4,
-        "category": "Sick People Service",
-        "title": "Patient Care & Recovery Support",
-        "description": "Specialized non-medical and semi-medical support for individuals recovering from surgery or managing chronic illness.",
-        "image": "https://i.ibb.co.com/Sws5Vj6C/alexander-grey-7-PZ8-Gb-pma-A-unsplash.jpg",
-        "features": [
-            "Post-operative recovery support",
-            "Vital sign monitoring",
-            "Wound care assistance",
-            "Coordination with medical providers"
-        ],
-        "availability": "On-demand / Scheduled",
-        "staff_qualification": "Licensed Practical Nurse (LPN) or Certified Nursing Assistant (CNA)",
-            "cost":4000
-    }
+  {
+    "id": 1,
+    "category": "Baby Care",
+    "title": "Newborn Night Nursing",
+    "description": "Expert overnight care to help parents rest while ensuring the infant's feeding and sleep cycles are managed.",
+    "image": "https://i.ibb.co.com/B2LT8mc7/vitaly-gariev-BD8i-K0lmqc0-unsplash.jpg",
+    "features": [
+      "Sleep training guidance",
+      "Overnight bottle feeding",
+      "Diapering and soothing",
+      "Lactation support"
+    ],
+    "availability": "9 PM - 7 AM",
+    "staff_qualification": "Registered Neonatal Nurse",
+    "cost": 4500
+  },
+  {
+    "id": 2,
+    "category": "Elderly Care",
+    "title": "Dementia & Alzheimer’s Support",
+    "description": "Specialized cognitive care focusing on safety, memory exercises, and routine maintenance for seniors.",
+    "image": "https://i.ibb.co.com/B2LT8mc7/vitaly-gariev-BD8i-K0lmqc0-unsplash.jpg",
+    "features": [
+      "Memory stimulation games",
+      "Wandering prevention",
+      "Behavioral management",
+      "Safety home-assessment"
+    ],
+    "availability": "24/7",
+    "staff_qualification": "Memory Care Certified Professional",
+    "cost": 5500
+  },
+  {
+    "id": 3,
+    "category": "Patient Care",
+    "title": "Post-Surgical Rehabilitation",
+    "description": "Supportive care for patients transitioning from hospital to home after major surgery.",
+    "image": "https://i.ibb.co.com/Sws5Vj6C/alexander-grey-7-PZ8-Gb-pma-A-unsplash.jpg",
+    "features": [
+      "Pain management tracking",
+      "Physical therapy assistance",
+      "Surgical site monitoring",
+      "Transportation to follow-ups"
+    ],
+    "availability": "Daily / Scheduled",
+    "staff_qualification": "Certified Nursing Assistant (CNA)",
+    "cost": 4200
+  },
+  {
+    "id": 4,
+    "category": "Home Nursing",
+    "title": "Clinical In-Home Infusion Therapy",
+    "description": "Professional administration of IV medications and fluids in the comfort of your home.",
+    "image": "https://i.ibb.co.com/Sws5Vj6C/alexander-grey-7-PZ8-Gb-pma-A-unsplash.jpg",
+    "features": [
+      "IV Antibiotic administration",
+      "Hydration therapy",
+      "PICC line maintenance",
+      "Lab sample collection"
+    ],
+    "availability": "Scheduled",
+    "staff_qualification": "Registered Nurse (RN)",
+    "cost": 6000
+  },
+  {
+    "id": 5,
+    "category": "Companion Care",
+    "title": "Social Engagement & Errands",
+    "description": "Non-medical support focused on emotional well-being and daily logistical assistance.",
+    "image": "https://i.ibb.co.com/B2LT8mc7/vitaly-gariev-BD8i-K0lmqc0-unsplash.jpg",
+    "features": [
+      "Grocery shopping",
+      "Accompanying to social events",
+      "Light meal preparation",
+      "Conversation and reading"
+    ],
+    "availability": "Hourly",
+    "staff_qualification": "Social Care Advocate",
+    "cost": 2500
+  },
+  {
+    "id": 6,
+    "category": "Respite Care",
+    "title": "Short-Term Family Relief",
+    "description": "Temporary care services to give primary family caregivers a necessary break.",
+    "image": "https://i.ibb.co.com/Sws5Vj6C/alexander-grey-7-PZ8-Gb-pma-A-unsplash.jpg",
+    "features": [
+      "Weekend stay-overs",
+      "Emergency back-up care",
+      "Personal hygiene assistance",
+      "Medication management"
+    ],
+    "availability": "On-demand",
+    "staff_qualification": "Home Health Aide (HHA)",
+    "cost": 3800
+  },
+  {
+    "id": 7,
+    "category": "Baby Care",
+    "title": "Toddler Developmental Coaching",
+    "description": "Focuses on early childhood milestones through structured play and educational routines.",
+    "image": "https://i.ibb.co.com/B2LT8mc7/vitaly-gariev-BD8i-K0lmqc0-unsplash.jpg",
+    "features": [
+      "Sensory play activities",
+      "Language development",
+      "Potty training support",
+      "Behavioral modeling"
+    ],
+    "availability": "Daytime",
+    "staff_qualification": "Early Childhood Educator",
+    "cost": 3200
+  },
+  {
+    "id": 8,
+    "category": "Home Nursing",
+    "title": "Chronic Wound Management",
+    "description": "Advanced nursing care for diabetic ulcers, pressure sores, and non-healing wounds.",
+    "image": "https://i.ibb.co.com/Sws5Vj6C/alexander-grey-7-PZ8-Gb-pma-A-unsplash.jpg",
+    "features": [
+      "Sterile dressing changes",
+      "Infection monitoring",
+      "Debridement support",
+      "Nutrition counseling"
+    ],
+    "availability": "Weekly visits",
+    "staff_qualification": "Wound Care Specialist Nurse",
+    "cost": 5000
+  },
+  {
+    "id": 9,
+    "category": "Elderly Care",
+    "title": "Mobility & Fall Prevention",
+    "description": "Specialized support for seniors with high fall risks or limited physical movement.",
+    "image": "https://i.ibb.co.com/B2LT8mc7/vitaly-gariev-BD8i-K0lmqc0-unsplash.jpg",
+    "features": [
+      "Transferring assistance",
+      "Strength building exercises",
+      "Home hazard assessment",
+      "Wheelchair navigation"
+    ],
+    "availability": "Live-in or Hourly",
+    "staff_qualification": "Physical Therapy Assistant",
+    "cost": 4800
+  },
+  {
+    "id": 10,
+    "category": "Patient Care",
+    "title": "Palliative Comfort Care",
+    "description": "Compassionate care aimed at optimizing quality of life for patients with serious illnesses.",
+    "image": "https://i.ibb.co.com/Sws5Vj6C/alexander-grey-7-PZ8-Gb-pma-A-unsplash.jpg",
+    "features": [
+      "Symptom relief",
+      "Emotional & spiritual support",
+      "Family counseling",
+      "Comfort-focused nursing"
+    ],
+    "availability": "24/7",
+    "staff_qualification": "Hospice & Palliative Nurse",
+    "cost": 5200
+  }
 ]

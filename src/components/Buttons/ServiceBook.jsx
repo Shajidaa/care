@@ -13,7 +13,10 @@ const ServiceBook = ({ id, data }) => {
     router.push(`/booking/${id}?data=${dataString}`);
   };
   return (
-    <button onClick={handleClick} className="btn btn-primary btn-lg flex-1">
+    <button
+      onClick={handleClick}
+      className="btn btn-primary border-0 border-none hover:bg-secondary btn-lg flex-1"
+    >
       <svg
         className="w-5 h-5 mr-2"
         fill="none"

@@ -1,12 +1,16 @@
 import Link from "next/link";
 import React from "react";
 
-const CommonBtn = ({ href, buttonText }) => {
+const CommonBtn = ({ href, className, buttonText }) => {
   return (
-    <div className="shrink-0 order-3 lg:order-3 w-full sm:w-auto">
+    <div
+      className={`shrink-0 order-3 lg:order-3 w-full sm:w-auto ${
+        className || ""
+      }`}
+    >
       <Link
         href={href}
-        className="group inline-flex items-center hover:bg-secondary justify-center w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white bg-primary  rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 ease-out hover:scale-105 focus:outline-none focus:ring-4 focus:ring-primary/25"
+        className={`group inline-flex items-center hover:bg-secondary justify-center w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white bg-primary  rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 ease-out hover:scale-105 focus:outline-none focus:ring-4 focus:ring-primary/25 `}
       >
         <span className="mr-2">{buttonText}</span>
         <svg

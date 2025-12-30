@@ -146,7 +146,7 @@ const ServiceDetails = async ({ params }) => {
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <ServiceBook id={id} data={service}></ServiceBook>
-              <button className="btn btn-outline btn-lg">
+              <button className="btn  btn-outline btn-lg">
                 <svg
                   className="w-5 h-5 mr-2"
                   fill="none"
@@ -166,7 +166,7 @@ const ServiceDetails = async ({ params }) => {
           </div>
         </div>
         {/* Features */}
-        <div className="card bg-base-100 shadow-md">
+        <div className="card bg-base-100 mt-5 shadow-md">
           <div className="card-body">
             <h3 className="card-title text-xl mb-4">Service Features</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">

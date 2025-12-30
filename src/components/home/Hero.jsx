@@ -6,7 +6,7 @@ import CommonBtn from "../Buttons/CommonBtn";
 
 const Hero = () => {
   return (
-    <section className="relative  overflow-hidden">
+    <section className="relative pt-10 overflow-hidden">
       <Container className="relative z-10 px-4 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Hero Content */}

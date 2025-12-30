@@ -3,6 +3,7 @@ import Link from "next/link";
 import Container from "../common/Container";
 import ServiceCard from "../common/ServiceCard";
 import Title from "../Title";
+import CommonBtn from "../Buttons/CommonBtn";
 
 async function getServices() {
   try {
@@ -29,22 +30,26 @@ const ServiceSection = async () => {
       <Container className="px-4">
         <div className="text-center mb-2">
           <h2 className="text-4xl lg:text-5xl font-bold text-base-content mb-1">
-            Our <span className="text-primary">Care Services</span>
+            What Services <span className="text-primary">We offer</span>
           </h2>
         </div>
         <Title
           description="  Comprehensive care solutions tailored to meet your family's
             unique needs. Our dedicated team provides compassionate support,
             ensuring comfort and well-being at every step."
-          buttonText="VIEW CARE SERVICES"
           href="/services"
         ></Title>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {services.slice(0, 6).map((service, index) => (
+          {services.slice(0, 4).map((service, index) => (
             <ServiceCard key={service.id || index} post={service} />
           ))}
         </div>
+        <CommonBtn
+          className="mt-8 mx-auto container block"
+          href={"/services"}
+          buttonText={"View all services"}
+        ></CommonBtn>
       </Container>
     </section>
   );
