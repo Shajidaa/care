@@ -24,13 +24,12 @@ const RegisterForm = () => {
     const result = await postUser(formData);
     if (result.acknowledged) {
       alert("successfully register done");
-      // return router.push("/login");
+
       const result = await signIn("credentials", {
         email: formData.email,
         password: formData.password,
-        //  callbackUrl
+        callbackUrl: "/",
       });
-      return router.push("/login");
     } else {
       return alert("something is wrong");
     }
@@ -39,8 +38,10 @@ const RegisterForm = () => {
   return (
     <div className="card w-full max-w-lg bg-base-100 shadow-xl">
       <div className="card-body">
-        <h2 className="card-title text-2xl font-bold text-center mb-6">Create Account</h2>
-        
+        <h2 className="card-title text-2xl font-bold text-center mb-6">
+          Create Account
+        </h2>
+
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Name */}
           <div className="form-control">
@@ -116,7 +117,9 @@ const RegisterForm = () => {
           <div className="form-control">
             <label className="label">
               <span className="label-text font-medium">Profile Image URL</span>
-              <span className="label-text-alt text-xs opacity-70">(Optional)</span>
+              <span className="label-text-alt text-xs opacity-70">
+                (Optional)
+              </span>
             </label>
             <input
               type="url"
@@ -128,10 +131,7 @@ const RegisterForm = () => {
 
           {/* Submit Button */}
           <div className="form-control mt-6">
-            <button
-              type="submit"
-              className="btn btn-primary w-full"
-            >
+            <button type="submit" className="btn btn-primary w-full">
               Create Account
             </button>
           </div>

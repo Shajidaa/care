@@ -3,14 +3,16 @@
 import { handleBooking } from "@/action/service";
 import axios from "axios";
 import { useSession } from "next-auth/react";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import Container from "./common/Container";
+import CommonBtn from "./Buttons/CommonBtn";
 
 const BookingClient = () => {
   const searchParams = useSearchParams();
   const dataParam = searchParams.get("data");
+  const router = useRouter();
   const session = useSession();
   const [serviceCenters, setServiceCenters] = useState([]);
   const [selectedRegion, setSelectedRegion] = useState("");
@@ -98,6 +100,7 @@ const BookingClient = () => {
               "success"
             );
             e.target.reset();
+            router.push("/myBookings");
           }
         } catch (error) {
           console.error("Axios Error:", error);
@@ -633,12 +636,12 @@ const BookingClient = () => {
               </div>
 
               {/* Enhanced Submit Button */}
-              <div className="form-control mt-12">
+              <div className="form-control  flex justify-center items-center mt-12">
                 <button
                   type="submit"
-                  className="btn btn-primary btn-lg w-full h-16 text-lg font-bold shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 bg-gradient-to-r from-primary to-primary/90 border-none"
+                  className="inline-flex items-center hover:bg-secondary justify-center w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white bg-primary  rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 ease-out hover:scale-105 focus:outline-none focus:ring-4 focus:ring-primary/25"
                 >
-                  Confirm Booking & Proceed
+                  Confirm Booking
                 </button>
               </div>
 

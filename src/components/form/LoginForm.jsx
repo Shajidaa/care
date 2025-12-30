@@ -20,6 +20,8 @@ const LoginForm = () => {
       password,
       redirect: false,
       // callbackUrl: params.get("callbackUrl" || "/"),
+      callbackUrl:
+        new URLSearchParams(window.location.search).get("callbackUrl") || "/",
     });
     console.log("sdfkdf", result);
 
