@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const Title = ({ description, buttonText, href }) => {
+const Title = ({ description }) => {
   return (
     <section className="relative overflow-hidden ">
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
