@@ -2,7 +2,13 @@
 import React, { useState } from "react";
 import Container from "@/components/common/Container";
 import Title from "@/components/Title";
-
+import {
+  HiOutlineEnvelope,
+  HiOutlinePhone,
+  HiOutlineChatBubbleLeftRight,
+  HiOutlineShieldExclamation,
+} from "react-icons/hi2";
+import FAQ from "@/components/common/FAQ";
 const ContactPage = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -11,7 +17,7 @@ const ContactPage = () => {
     serviceType: "",
     urgency: "",
     message: "",
-    preferredContact: "email"
+    preferredContact: "email",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -19,49 +25,69 @@ const ContactPage = () => {
 
   const serviceTypes = [
     "Baby Care",
-    "Elderly Care", 
+    "Elderly Care",
     "Patient Care",
     "Home Nursing",
     "Companion Care",
     "Respite Care",
-    "General Inquiry"
+    "General Inquiry",
   ];
 
   const urgencyLevels = [
     { value: "routine", label: "Routine (Within 48 hours)" },
     { value: "urgent", label: "Urgent (Within 24 hours)" },
-    { value: "emergency", label: "Emergency (Immediate)" }
+    { value: "emergency", label: "Emergency (Immediate)" },
   ];
 
   const contactMethods = [
-    { icon: "📧", title: "Email", value: "support@careservices.com", type: "email" },
-    { icon: "📞", title: "Phone", value: "+1 (555) 123-4567", type: "phone" },
-    { icon: "💬", title: "WhatsApp", value: "+1 (555) 123-4567", type: "whatsapp" },
-    { icon: "🏥", title: "Emergency", value: "+1 (555) 911-CARE", type: "emergency" }
+    {
+      icon: <HiOutlineEnvelope className="w-6 h-6" />,
+      title: "Email",
+      value: "support@careservices.com",
+      type: "email",
+    },
+    {
+      icon: <HiOutlinePhone className="w-6 h-6" />,
+      title: "Phone",
+      value: "+1 (555) 123-4567",
+      type: "phone",
+    },
+    {
+      icon: <HiOutlineChatBubbleLeftRight className="w-6 h-6" />,
+      title: "WhatsApp",
+      value: "+1 (555) 123-4567",
+      type: "whatsapp",
+    },
+    {
+      icon: <HiOutlineShieldExclamation className="w-6 h-6 text-red-600" />,
+      title: "Emergency",
+      value: "+1 (555) 911-CARE",
+      type: "emergency",
+    },
   ];
 
   const officeHours = [
     { day: "Monday - Friday", hours: "8:00 AM - 8:00 PM" },
     { day: "Saturday", hours: "9:00 AM - 6:00 PM" },
     { day: "Sunday", hours: "10:00 AM - 4:00 PM" },
-    { day: "Emergency Services", hours: "24/7 Available" }
+    { day: "Emergency Services", hours: "24/7 Available" },
   ];
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      await new Promise((resolve) => setTimeout(resolve, 2000));
       setSubmitStatus("success");
       setFormData({
         name: "",
@@ -70,7 +96,7 @@ const ContactPage = () => {
         serviceType: "",
         urgency: "",
         message: "",
-        preferredContact: "email"
+        preferredContact: "email",
       });
     } catch (error) {
       setSubmitStatus("error");
@@ -86,8 +112,9 @@ const ContactPage = () => {
         <div className="text-center mb-16">
           <Title>Contact Our Care Team</Title>
           <p className="text-lg text-base-content/70 max-w-3xl mx-auto mt-4">
-            We're here to help you find the right care solution. Whether you need immediate assistance 
-            or want to learn more about our services, our dedicated team is ready to support you.
+            We&apos;re here to help you find the right care solution. Whether
+            you need immediate assistance or want to learn more about our
+            services, our dedicated team is ready to support you.
           </p>
         </div>
 
@@ -102,19 +129,44 @@ const ContactPage = () => {
 
                 {submitStatus === "success" && (
                   <div className="alert alert-success mb-6">
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                    <svg
+                      className="w-6 h-6"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
                     </svg>
-                    <span>Thank you! We'll get back to you within 24 hours.</span>
+                    <span>
+                      Thank you! We&apos;ll get back to you within 24 hours.
+                    </span>
                   </div>
                 )}
 
                 {submitStatus === "error" && (
                   <div className="alert alert-error mb-6">
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+                    <svg
+                      className="w-6 h-6"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M6 18L18 6M6 6l12 12"
+                      ></path>
                     </svg>
-                    <span>Something went wrong. Please try again or call us directly.</span>
+                    <span>
+                      Something went wrong. Please try again or call us
+                      directly.
+                    </span>
                   </div>
                 )}
 
@@ -123,7 +175,9 @@ const ContactPage = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="form-control">
                       <label className="label">
-                        <span className="label-text font-medium">Full Name *</span>
+                        <span className="label-text font-medium">
+                          Full Name *
+                        </span>
                       </label>
                       <input
                         type="text"
@@ -137,7 +191,9 @@ const ContactPage = () => {
                     </div>
                     <div className="form-control">
                       <label className="label">
-                        <span className="label-text font-medium">Email Address *</span>
+                        <span className="label-text font-medium">
+                          Email Address *
+                        </span>
                       </label>
                       <input
                         type="email"
@@ -155,7 +211,9 @@ const ContactPage = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="form-control">
                       <label className="label">
-                        <span className="label-text font-medium">Phone Number *</span>
+                        <span className="label-text font-medium">
+                          Phone Number *
+                        </span>
                       </label>
                       <input
                         type="tel"
@@ -169,7 +227,9 @@ const ContactPage = () => {
                     </div>
                     <div className="form-control">
                       <label className="label">
-                        <span className="label-text font-medium">Service Needed</span>
+                        <span className="label-text font-medium">
+                          Service Needed
+                        </span>
                       </label>
                       <select
                         name="serviceType"
@@ -191,7 +251,9 @@ const ContactPage = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="form-control">
                       <label className="label">
-                        <span className="label-text font-medium">Urgency Level</span>
+                        <span className="label-text font-medium">
+                          Urgency Level
+                        </span>
                       </label>
                       <select
                         name="urgency"
@@ -209,7 +271,9 @@ const ContactPage = () => {
                     </div>
                     <div className="form-control">
                       <label className="label">
-                        <span className="label-text font-medium">Preferred Contact Method</span>
+                        <span className="label-text font-medium">
+                          Preferred Contact Method
+                        </span>
                       </label>
                       <div className="flex gap-4 mt-2">
                         <label className="label cursor-pointer">
@@ -258,9 +322,11 @@ const ContactPage = () => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className={`btn btn-primary btn-lg w-full ${isSubmitting ? 'loading' : ''}`}
+                      className={`btn btn-primary btn-lg w-full ${
+                        isSubmitting ? "loading" : ""
+                      }`}
                     >
-                      {isSubmitting ? 'Sending...' : 'Send Message'}
+                      {isSubmitting ? "Sending..." : "Send Message"}
                     </button>
                   </div>
                 </form>
@@ -278,7 +344,10 @@ const ContactPage = () => {
                 </h3>
                 <div className="space-y-4">
                   {contactMethods.map((method, index) => (
-                    <div key={index} className="flex items-center gap-4 p-3 rounded-lg hover:bg-base-200/50 transition-colors">
+                    <div
+                      key={index}
+                      className="flex items-center gap-4 p-3 rounded-lg hover:bg-base-200/50 transition-colors"
+                    >
                       <div className="text-2xl">{method.icon}</div>
                       <div>
                         <div className="font-semibold text-base-content">
@@ -302,7 +371,10 @@ const ContactPage = () => {
                 </h3>
                 <div className="space-y-3">
                   {officeHours.map((schedule, index) => (
-                    <div key={index} className="flex justify-between items-center py-2 border-b border-base-300/30 last:border-b-0">
+                    <div
+                      key={index}
+                      className="flex justify-between items-center py-2 border-b border-base-300/30 last:border-b-0"
+                    >
                       <span className="font-medium text-base-content">
                         {schedule.day}
                       </span>
@@ -314,95 +386,10 @@ const ContactPage = () => {
                 </div>
               </div>
             </div>
-
-            {/* Emergency Notice */}
-            <div className="card bg-error/10 border border-error/20">
-              <div className="card-body p-6">
-                <h3 className="card-title text-xl mb-4 text-error">
-                  🚨 Emergency Care
-                </h3>
-                <p className="text-base-content/80 mb-4">
-                  For immediate medical emergencies, call 911 first. For urgent care needs, contact our 24/7 emergency line.
-                </p>
-                <button className="btn btn-error btn-sm w-full">
-                  Call Emergency Line
-                </button>
-              </div>
-            </div>
-
-            {/* Location */}
-            <div className="card bg-base-100 shadow-xl border border-base-300/50">
-              <div className="card-body p-6">
-                <h3 className="card-title text-xl mb-4 text-primary">
-                  📍 Our Location
-                </h3>
-                <div className="space-y-2">
-                  <p className="text-base-content">
-                    <strong>Care Services Headquarters</strong>
-                  </p>
-                  <p className="text-base-content/70">
-                    123 Healthcare Avenue<br />
-                    Medical District<br />
-                    City, State 12345
-                  </p>
-                  <button className="btn btn-outline btn-sm mt-4 w-full">
-                    Get Directions
-                  </button>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 
-        {/* FAQ Section */}
-        <div className="mt-16">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-base-content mb-4">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-base-content/70 max-w-2xl mx-auto">
-              Quick answers to common questions about our care services.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="card bg-base-100 shadow-lg border border-base-300/50">
-              <div className="card-body p-6">
-                <h3 className="font-semibold text-lg mb-2">How quickly can you start care?</h3>
-                <p className="text-base-content/70">
-                  We can typically arrange care within 24-48 hours for routine needs, and same-day for urgent situations.
-                </p>
-              </div>
-            </div>
-
-            <div className="card bg-base-100 shadow-lg border border-base-300/50">
-              <div className="card-body p-6">
-                <h3 className="font-semibold text-lg mb-2">Do you accept insurance?</h3>
-                <p className="text-base-content/70">
-                  Yes, we work with most major insurance providers. Contact us to verify your coverage.
-                </p>
-              </div>
-            </div>
-
-            <div className="card bg-base-100 shadow-lg border border-base-300/50">
-              <div className="card-body p-6">
-                <h3 className="font-semibold text-lg mb-2">Are your caregivers licensed?</h3>
-                <p className="text-base-content/70">
-                  All our caregivers are licensed, bonded, and undergo thorough background checks and training.
-                </p>
-              </div>
-            </div>
-
-            <div className="card bg-base-100 shadow-lg border border-base-300/50">
-              <div className="card-body p-6">
-                <h3 className="font-semibold text-lg mb-2">What areas do you serve?</h3>
-                <p className="text-base-content/70">
-                  We provide services throughout the metropolitan area. Contact us to confirm availability in your location.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+        <FAQ></FAQ>
       </Container>
     </div>
   );
