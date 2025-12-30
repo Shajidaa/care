@@ -7,7 +7,6 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import Container from "./common/Container";
-import CommonBtn from "./Buttons/CommonBtn";
 
 const BookingClient = () => {
   const searchParams = useSearchParams();
@@ -114,9 +113,9 @@ const BookingClient = () => {
     });
   };
   return (
-    <div className="min-h-screen bg-gradient-to-br from-base-200 via-base-100 to-base-200 py-12">
+    <div className="min-h-screen  py-12">
       <Container className=" pt-10 mx-auto px-4">
-        <div className="text-center mb-12 animate-fade-in">
+        <div className="text-center pt-5 mb-12 animate-fade-in">
           <h1 className="text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-4">
             Book Your Service
           </h1>

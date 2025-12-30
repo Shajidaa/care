@@ -233,7 +233,7 @@ const Proud = () => {
       <section className="relative w-full h-80 md:h-[400px] overflow-hidden">
         <Image
           fill
-          src="https://i.ibb.co.com/Zrbj3tG/Screenshot-2025-12-30-005750.jpg"
+          src="https://www.kew.org/sites/default/files/styles/social/public/2025-01/Nature-Unlocked-carbon-research-Jim-Holden-C-RBG-Kew-43.jpg.webp?itok=Jvs1DSii"
           alt="Nature and care"
           className="absolute inset-0 w-full h-full object-cover"
         />

@@ -51,32 +51,6 @@ const MyBookingsPage = () => {
     }
   };
 
-  // const handleCancelBooking = async (bookingId) => {
-  //   if (!confirm("Are you sure you want to cancel this booking?")) return;
-
-  //   try {
-  //     const response = await fetch(`/api/bookings/${bookingId}`, {
-  //       method: "PATCH",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify({ status: "cancelled" }),
-  //     });
-
-  //     if (response.ok) {
-  //       setBookings(
-  //         bookings.map((booking) =>
-  //           booking._id === bookingId
-  //             ? { ...booking, status: "cancelled" }
-  //             : booking
-  //         )
-  //       );
-  //     }
-  //   } catch (error) {
-  //     console.error("Error cancelling booking:", error);
-  //   }
-  // };
-
   const formatDate = (dateString) => {
     return new Date(dateString).toLocaleDateString("en-US", {
       year: "numeric",
@@ -106,7 +80,7 @@ const MyBookingsPage = () => {
   return (
     <Container className="px-4 py-8">
       {/* Header Section */}
-      <div className="mb-8">
+      <div className="mb-8 mt-20">
         <div className="flex items-center gap-4 mb-4">
           <div className="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center">
             <svg

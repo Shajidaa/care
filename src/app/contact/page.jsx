@@ -9,6 +9,7 @@ import {
   HiOutlineShieldExclamation,
 } from "react-icons/hi2";
 import FAQ from "@/components/common/FAQ";
+import CommonTitle from "@/components/common/CommonTitle";
 const ContactPage = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -109,15 +110,14 @@ const ContactPage = () => {
     <div className="min-h-screen bg-gradient-to-br from-base-100 to-base-200/50 pt-24 pb-12">
       <Container>
         {/* Header Section */}
-        <div className="text-center mb-16">
-          <Title>Contact Our Care Team</Title>
-          <p className="text-lg text-base-content/70 max-w-3xl mx-auto mt-4">
-            We&apos;re here to help you find the right care solution. Whether
-            you need immediate assistance or want to learn more about our
-            services, our dedicated team is ready to support you.
-          </p>
-        </div>
 
+        <CommonTitle
+          className={"pt-10"}
+          heading="Contact Our Care Team"
+          des="We're here to help you find the right care solution. Whether
+            you need immediate assistance or want to learn more about our
+            services, our dedicated team is ready to support you."
+        ></CommonTitle>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Contact Form */}
           <div className="lg:col-span-2">
