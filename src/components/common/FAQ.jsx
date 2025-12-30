@@ -48,10 +48,10 @@ const FAQ = () => {
       {/* FAQ Section */}
       <div className="mt-16">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-base-content mb-4">
+          <h2 className="text-3xl font-bold text-[var(--color-secondary)] dark:text-[var(--color-primary)] mb-4">
             Frequently Asked Questions
           </h2>
-          <p className="text-base-content/70 max-w-2xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Quick answers to common questions about our care services.
           </p>
         </div>
@@ -60,19 +60,19 @@ const FAQ = () => {
           {faqData.map((item) => (
             <div 
               key={item.id}
-              className="card bg-base-100 shadow-lg border border-base-300/50 overflow-hidden transition-all duration-300 hover:shadow-xl"
+              className="bg-white dark:bg-gray-800 shadow-lg border border-[var(--color-primary)]/20 dark:border-[var(--color-primary)]/30 rounded-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-[var(--color-primary)]/40"
             >
               <div 
-                className="card-body p-0 cursor-pointer"
+                className="p-0 cursor-pointer"
                 onClick={() => toggleItem(item.id)}
               >
-                <div className="flex items-center justify-between p-6 hover:bg-base-200/50 transition-colors duration-200">
-                  <h3 className="font-semibold text-lg text-base-content pr-4">
+                <div className="flex items-center justify-between p-6 hover:bg-[var(--color-primary)]/5 dark:hover:bg-[var(--color-primary)]/10 transition-colors duration-200">
+                  <h3 className="font-semibold text-lg text-[var(--color-secondary)] dark:text-[var(--color-primary)] pr-4">
                     {item.question}
                   </h3>
                   <div className="flex-shrink-0">
                     <svg
-                      className={`w-6 h-6 text-base-content/70 transition-transform duration-300 ${
+                      className={`w-6 h-6 text-[var(--color-secondary)]/70 dark:text-[var(--color-primary)]/70 transition-transform duration-300 ${
                         openItems[item.id] ? 'rotate-180' : ''
                       }`}
                       fill="none"
@@ -97,8 +97,8 @@ const FAQ = () => {
                   }`}
                 >
                   <div className="px-6 pb-6">
-                    <div className="border-t border-base-300/50 pt-4">
-                      <p className="text-base-content/70 leading-relaxed">
+                    <div className="border-t border-[var(--color-primary)]/20 dark:border-[var(--color-primary)]/30 pt-4">
+                      <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
                         {item.answer}
                       </p>
                     </div>
