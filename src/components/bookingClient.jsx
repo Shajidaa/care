@@ -6,6 +6,7 @@ import { useSession } from "next-auth/react";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
+import Container from "./common/Container";
 
 const BookingClient = () => {
   const searchParams = useSearchParams();
@@ -87,15 +88,6 @@ const BookingClient = () => {
       if (result.isConfirmed) {
         //send the data to mongodb
 
-        // const response = await handleBooking(finalData);
-
-        // if (response.success) {
-        //   Swal.fire("Success!", "Your booking has been confirmed.", "success");
-        //   e.target.reset();
-        // } else {
-        //   Swal.fire("Error", "Something went wrong. Try again.", "error");
-        // }
-        // console.log(result);
         try {
           const response = await axios.post("/api/bookings", finalData);
 
@@ -120,23 +112,8 @@ const BookingClient = () => {
   };
   return (
     <div className="min-h-screen bg-gradient-to-br from-base-200 via-base-100 to-base-200 py-12">
-      <div className="max-w-5xl mx-auto px-4">
+      <Container className=" pt-10 mx-auto px-4">
         <div className="text-center mb-12 animate-fade-in">
-          <div className="inline-block p-2 bg-primary/10 rounded-full mb-4">
-            <svg
-              className="w-12 h-12 text-primary"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M8 7V3a4 4 0 118 0v4m-4 8a4 4 0 11-8 0v-4h8v4z"
-              />
-            </svg>
-          </div>
           <h1 className="text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-4">
             Book Your Service
           </h1>
@@ -152,8 +129,6 @@ const BookingClient = () => {
           <div className="card bg-gradient-to-r from-base-100 to-base-100/80 shadow-2xl mb-10 border border-primary/20 hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-1">
             <div className="card-body relative overflow-hidden">
               {/* Background Pattern */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -translate-y-16 translate-x-16"></div>
-              <div className="absolute bottom-0 left-0 w-24 h-24 bg-secondary/5 rounded-full translate-y-12 -translate-x-12"></div>
 
               <div className="flex items-center justify-between mb-6 relative z-10">
                 <div className="flex items-center gap-4">
@@ -663,33 +638,7 @@ const BookingClient = () => {
                   type="submit"
                   className="btn btn-primary btn-lg w-full h-16 text-lg font-bold shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 bg-gradient-to-r from-primary to-primary/90 border-none"
                 >
-                  <svg
-                    className="w-6 h-6 mr-3"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M8 7V3a4 4 0 118 0v4m-4 8a4 4 0 11-8 0v-4h8v4z"
-                    />
-                  </svg>
                   Confirm Booking & Proceed
-                  <svg
-                    className="w-5 h-5 ml-3"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M13 7l5 5m0 0l-5 5m5-5H6"
-                    />
-                  </svg>
                 </button>
               </div>
 
@@ -738,7 +687,7 @@ const BookingClient = () => {
             </form>
           </div>
         </div>
-      </div>
+      </Container>
     </div>
   );
 };
