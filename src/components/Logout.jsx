@@ -2,9 +2,29 @@
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import Image from "next/image";
+import { showSuccess, showLoading, closeLoading } from "@/lib/toast";
 
 const ProfileDropdown = () => {
   const { data: session, status } = useSession();
+
+  // Handle sign out with toast
+  const handleSignOut = async () => {
+    showLoading("Signing you out...");
+    
+    try {
+      await signOut({ 
+        redirect: true,
+        callbackUrl: "/" 
+      });
+      
+      // Note: This won't execute if redirect is true, but keeping for completeness
+      closeLoading();
+      showSuccess("Successfully signed out!");
+    } catch (error) {
+      closeLoading();
+      console.error("Sign out error:", error);
+    }
+  };
 
   // Generate avatar from user's name or email
   const getAvatarUrl = (user) => {
@@ -145,7 +165,7 @@ const ProfileDropdown = () => {
             {/* Logout Button */}
             <li>
               <button
-                onClick={() => signOut()}
+                onClick={handleSignOut}
                 className="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium transition-all duration-300 hover:bg-error/10 hover:text-error hover:scale-105 w-full text-left"
               >
                 <svg

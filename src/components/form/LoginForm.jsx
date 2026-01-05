@@ -1,36 +1,42 @@
 "use client";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
-import SocialButton from "../SocialButton";
+import { showError, showLoading, closeLoading } from "@/lib/toast";
 
 const LoginForm = () => {
-  const router = useRouter();
-  const params = useSearchParams();
-  // const callback = params.get("callbackUrl");
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+    
+    // Show loading toast
+    showLoading("Signing you in...");
 
-    const result = await signIn("credentials", {
-      email,
-      password,
-      redirect: false,
-      // callbackUrl: params.get("callbackUrl" || "/"),
-      callbackUrl:
-        new URLSearchParams(window.location.search).get("callbackUrl") || "/",
-    });
-    console.log("sdfkdf", result);
+    try {
+      const result = await signIn("credentials", {
+        email,
+        password,
+        redirect: false,
+        callbackUrl:
+          new URLSearchParams(window.location.search).get("callbackUrl") || "/",
+      });
 
-    if (result?.error) {
-      alert("Login failed: " + result.error);
-    } else {
-      alert("Login successful!");
+      closeLoading();
 
-      // router.push("/");
+      if (result?.error) {
+        showError("Login failed: " + result.error);
+      } else {
+        // Let the session hook handle the success toast
+        // Redirect after a short delay
+        setTimeout(() => {
+          window.location.href = result.url || "/";
+        }, 500);
+      }
+    } catch (error) {
+      closeLoading();
+      showError("An unexpected error occurred. Please try again.");
+      console.error("Login error:", error);
     }
   };
   return (
@@ -66,7 +72,7 @@ const LoginForm = () => {
             <Link href={`/register`} className="link link-primary">
               Register
             </Link>
-            <SocialButton></SocialButton>
+           
           </p>
         </div>
       </div>

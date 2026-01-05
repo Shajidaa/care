@@ -1,9 +1,9 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-
 import { signIn } from "next-auth/react";
 import { postUser } from "@/action/server/auth";
+import { showSuccess, showError, showLoading, closeLoading } from "@/lib/toast";
 const RegisterForm = () => {
   const router = useRouter();
   const handleSubmit = async (e) => {
@@ -20,18 +20,44 @@ const RegisterForm = () => {
       image: form.image.value,
     };
 
-    console.log("Submitted Data:", formData);
-    const result = await postUser(formData);
-    if (result.acknowledged) {
-      alert("successfully register done");
+    // Show loading toast
+    showLoading("Creating your account...");
 
-      const result = await signIn("credentials", {
-        email: formData.email,
-        password: formData.password,
-        callbackUrl: "/",
-      });
-    } else {
-      return alert("something is wrong");
+    try {
+      const result = await postUser(formData);
+      
+      if (result.acknowledged) {
+        showSuccess("Registration successful! Signing you in...");
+
+        // Auto sign in after successful registration
+        const signInResult = await signIn("credentials", {
+          email: formData.email,
+          password: formData.password,
+          redirect: false,
+          callbackUrl: "/",
+        });
+
+        closeLoading();
+
+        if (signInResult?.error) {
+          showError("Registration successful but auto-login failed. Please login manually.");
+          setTimeout(() => {
+            router.push("/login");
+          }, 1500);
+        } else {
+          // Let the session hook handle the welcome toast
+          setTimeout(() => {
+            window.location.href = "/";
+          }, 1000);
+        }
+      } else {
+        closeLoading();
+        showError("Registration failed. Please check your information and try again.");
+      }
+    } catch (error) {
+      closeLoading();
+      showError("An unexpected error occurred. Please try again.");
+      console.error("Registration error:", error);
     }
   };
 

@@ -6,10 +6,6 @@
   themes: light, dark
 }
 
-
-
-
-
 [data-theme="light"] {
   --color-primary: #01c7ba;
   --color-secondary: #440236;
@@ -18,16 +14,48 @@
   --color-white: #f9f8f6;
 }
 
-
-
 [data-theme="dark"] {
-
   --color-primary: #c8a294;
   --color-secondary: #50045f;
   --color-neutral: #0f0e0e;
   --color-error: #f72c5b;
   --color-white: #f9f8f6;
-
 }
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+/* Custom Toast Styles */
+.colored-toast.swal2-popup {
+  border-radius: 0.75rem !important;
+  font-family: inherit !important;
+  font-size: 0.875rem !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+.colored-toast .swal2-title {
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  margin: 0 !important;
+}
+
+.colored-toast .swal2-icon {
+  width: 1.5rem !important;
+  height: 1.5rem !important;
+  margin: 0 0.5rem 0 0 !important;
+}
+
+.colored-toast .swal2-icon.swal2-success [class^='swal2-success-line'] {
+  background-color: #ffffff !important;
+}
+
+.colored-toast .swal2-icon.swal2-success .swal2-success-ring {
+  border-color: #ffffff !important;
+}
+
+.colored-toast .swal2-icon.swal2-error [class^='swal2-x-mark-line'] {
+  background-color: #ffffff !important;
+}
+
+.colored-toast .swal2-timer-progress-bar {
+  background: rgba(255, 255, 255, 0.6) !important;
+}
