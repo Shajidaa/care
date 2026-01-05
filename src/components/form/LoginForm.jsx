@@ -1,9 +1,17 @@
 "use client";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
+import { useState } from "react";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { showError, showLoading, closeLoading } from "@/lib/toast";
 
 const LoginForm = () => {
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -54,13 +62,26 @@ const LoginForm = () => {
               required
             />
 
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              className="input input-bordered w-full"
-              required
-            />
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                name="password"
+                placeholder="Password"
+                className="input input-bordered w-full pr-12"
+                required
+              />
+              <button
+                type="button"
+                onClick={togglePasswordVisibility}
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-base-content/60 hover:text-base-content transition-colors duration-200"
+              >
+                {showPassword ? (
+                  <AiOutlineEyeInvisible size={20} />
+                ) : (
+                  <AiOutlineEye size={20} />
+                )}
+              </button>
+            </div>
 
             <button type="submit" className="btn btn-primary w-full">
               Login

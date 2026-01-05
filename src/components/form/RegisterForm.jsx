@@ -1,11 +1,19 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { signIn } from "next-auth/react";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { postUser } from "@/action/server/auth";
 import { showSuccess, showError, showLoading, closeLoading } from "@/lib/toast";
 const RegisterForm = () => {
   const router = useRouter();
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -129,13 +137,26 @@ const RegisterForm = () => {
               <label className="label">
                 <span className="label-text font-medium">Password</span>
               </label>
-              <input
-                type="password"
-                name="password"
-                placeholder="Enter password"
-                required
-                className="input input-bordered w-full"
-              />
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  placeholder="Enter password"
+                  required
+                  className="input input-bordered w-full pr-12"
+                />
+                <button
+                  type="button"
+                  onClick={togglePasswordVisibility}
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-base-content/60 hover:text-base-content transition-colors duration-200"
+                >
+                  {showPassword ? (
+                    <AiOutlineEyeInvisible size={20} />
+                  ) : (
+                    <AiOutlineEye size={20} />
+                  )}
+                </button>
+              </div>
             </div>
           </div>
 
