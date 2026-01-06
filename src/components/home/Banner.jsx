@@ -56,7 +56,7 @@ const Banner = () => {
             </p>
 
             {/* Call to Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-6">
               <Link
                 href="/services"
                 className="group relative btn btn-primary btn-lg px-8 py-4 text-lg font-semibold rounded-2xl shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 overflow-hidden border-0"

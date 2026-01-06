@@ -2,10 +2,10 @@ import Link from "next/link";
 
 const Title = ({ description }) => {
   return (
-    <section className="relative overflow-hidden ">
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
+    <section className="relative overflow-hidden py-8">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Mobile-first responsive layout */}
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start lg:items-center">
+        <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start lg:items-center">
           {/* Decorative line - responsive positioning */}
           <div className="shrink-0 order-1 lg:order-1">
             <div className="w-16 sm:w-20 lg:w-24 h-1 bg-secondary rounded-full shadow-lg transform hover:scale-105 transition-transform duration-300"></div>

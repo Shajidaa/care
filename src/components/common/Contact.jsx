@@ -5,7 +5,7 @@ import CBtn from "../Buttons/CBtn";
 const Contact = () => {
   return (
     <section
-      className="relative h-[40vh] bg-fixed bg-center bg-cover flex items-center justify-center"
+      className="relative h-[40vh] bg-fixed bg-center bg-cover flex items-center justify-center py-16"
       style={{
         backgroundImage:
           "url('https://i.ibb.co.com/pBTr752X/istockphoto-652195062-612x612.jpg')",

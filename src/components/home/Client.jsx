@@ -98,11 +98,11 @@ const Client = () => {
   };
 
   return (
-    <section className="py-16 bg-gradient-to-br from-base-100 to-base-200/50">
+    <section className="py-20 bg-gradient-to-br from-base-100 to-base-200/50">
       <Container>
-        <div className="text-center mb-16">
-          <div className="text-center mb-2">
-            <h2 className="text-4xl lg:text-5xl font-bold text-base-content mb-1">
+        <div className="text-center mb-16 space-y-6">
+          <div className="text-center">
+            <h2 className="text-4xl lg:text-5xl font-bold text-base-content">
               What Our <span className="text-primary"> Clients Say</span>
             </h2>
           </div>
@@ -115,7 +115,7 @@ const Client = () => {
         </div>
 
         {/* All Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
             <div
               key={testimonial.id}

@@ -237,7 +237,7 @@ const Proud = () => {
           alt="Nature and care"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/40 dark:bg-black/60" />
+        <div className="absolute inset-0 " />
 
         {/* Navigation Tabs */}
         <div className="absolute bottom-0 left-0 right-0">

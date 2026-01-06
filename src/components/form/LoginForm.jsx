@@ -48,39 +48,41 @@ const LoginForm = () => {
     }
   };
   return (
-    <div className="min-h-screen flex items-center justify-center bg-base-200">
+    <div className="min-h-screen flex items-center justify-center bg-base-200 py-8">
       <div className="card w-full max-w-sm shadow-xl bg-base-100">
-        <div className="card-body">
+        <div className="card-body space-y-6">
           <h2 className="text-2xl font-bold text-center">Login</h2>
 
-          <form onSubmit={handleSubmit} className="space-y-3">
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              className="input input-bordered w-full"
-              required
-            />
-
-            <div className="relative">
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="space-y-4">
               <input
-                type={showPassword ? "text" : "password"}
-                name="password"
-                placeholder="Password"
-                className="input input-bordered w-full pr-12"
+                type="email"
+                name="email"
+                placeholder="Email"
+                className="input input-bordered w-full"
                 required
               />
-              <button
-                type="button"
-                onClick={togglePasswordVisibility}
-                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-base-content/60 hover:text-base-content transition-colors duration-200"
-              >
-                {showPassword ? (
-                  <AiOutlineEyeInvisible size={20} />
-                ) : (
-                  <AiOutlineEye size={20} />
-                )}
-              </button>
+
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  placeholder="Password"
+                  className="input input-bordered w-full pr-12"
+                  required
+                />
+                <button
+                  type="button"
+                  onClick={togglePasswordVisibility}
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-base-content/60 hover:text-base-content transition-colors duration-200"
+                >
+                  {showPassword ? (
+                    <AiOutlineEyeInvisible size={20} />
+                  ) : (
+                    <AiOutlineEye size={20} />
+                  )}
+                </button>
+              </div>
             </div>
 
             <button type="submit" className="btn btn-primary w-full">
@@ -88,7 +90,7 @@ const LoginForm = () => {
             </button>
           </form>
 
-          <p className="text-center text-sm mt-4">
+          <p className="text-center text-sm">
             Don’t have an account?{" "}
             <Link href={`/register`} className="link link-primary">
               Register

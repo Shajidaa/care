@@ -7,7 +7,7 @@ import Client from "@/components/home/Client";
 
 export default async function Home() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen space-y-20">
       <Hero></Hero>
       <ServiceSection></ServiceSection>
       <Contact></Contact>
