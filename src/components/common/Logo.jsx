@@ -26,7 +26,7 @@ const Logo = () => {
           </div>
           <div className="absolute -top-1 -right-1 w-3 h-3 bg-secondary rounded-full opacity-80 group-hover:opacity-100 transition-opacity duration-300"></div>
         </div>
-        <span className="hidden sm:block">Care.io</span>
+        <span className="">Care.io</span>
       </Link>
     </div>
   );

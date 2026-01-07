@@ -106,11 +106,7 @@ const ProfileDropdown = ({ isMobile = false, onClose }) => {
                 <span>My Bookings</span>
               </Link>
             </div>
-          </div>
-        )}
-
-        {/* ALWAYS SHOW SIGN OUT BUTTON FOR TESTING */}
-        <div className="pt-4 border-t border-base-300/50">
+              <div className="pt-4 border-t border-base-300/50">
         
           <button
             onClick={handleSignOut}
@@ -120,6 +116,11 @@ const ProfileDropdown = ({ isMobile = false, onClose }) => {
             <span>Sign Out </span>
           </button>
         </div>
+          </div>
+        )}
+
+
+      
 
         {/* Show guest user options when not authenticated */}
         {status !== "authenticated" && (

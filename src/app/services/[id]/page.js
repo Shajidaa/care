@@ -51,7 +51,7 @@ const ServiceDetails = async ({ params }) => {
           </ul>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1  gap-8">
           {/* Image Section */}
           <div className="space-y-4">
             <div className="relative rounded-2xl overflow-hidden shadow-xl">

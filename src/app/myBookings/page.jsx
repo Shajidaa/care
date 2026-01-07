@@ -81,27 +81,13 @@ const MyBookingsPage = () => {
     <Container className="px-4 py-8">
       {/* Header Section */}
       <div className="mb-8 mt-20">
-        <div className="flex items-center gap-4 mb-4">
-          <div className="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center">
-            <svg
-              className="w-6 h-6 text-white"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
-              />
-            </svg>
-          </div>
+        <div className="flex justify-center items-center gap-4 mb-4">
+         
           <div>
-            <h1 className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            <h1 className="text-3xl text-center lg:text-4xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
               My Bookings
             </h1>
-            <p className="text-base-content/70 mt-1">
+            <p className="text-base-content/70 text-center  mt-1">
               Manage and track your service bookings
             </p>
           </div>

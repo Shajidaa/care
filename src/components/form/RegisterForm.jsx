@@ -36,7 +36,7 @@ const RegisterForm = () => {
       const result = await postUser(formData);
       
       if (result.acknowledged) {
-        showSuccess("Registration successful! Signing you in...");
+        
 
         // Auto sign in after successful registration
         const signInResult = await signIn("credentials", {
@@ -45,7 +45,7 @@ const RegisterForm = () => {
           redirect: false,
           callbackUrl: "/",
         });
-
+showSuccess("Registration successful! Signing you in...");
         closeLoading();
 
         if (signInResult?.error) {
@@ -71,7 +71,7 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-base-200 py-8">
+    <div className="min-h-screen flex items-center justify-center bg-base-200 py-18">
       <div className="card w-full max-w-lg bg-base-100 shadow-xl">
         <div className="card-body space-y-8">
           <h2 className="card-title text-2xl font-bold text-center">
