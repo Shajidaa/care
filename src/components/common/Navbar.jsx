@@ -12,10 +12,10 @@ import ThemeToggle from "../ThemeToggle";
 const Navbar = () => {
   return (
     <div className="fixed top-0 left-0 right-0 z-50 bg-base-100/95 backdrop-blur-md border-b border-base-300/50 shadow-sm">
-      <Container className="navbar py-4">
+      <Container className="navbar  py-4">
         <div className="navbar-start">
           {/* Mobile menu button */}
-          <div className="dropdown">
+          <div className="dropdown border">
             <div
               tabIndex={0}
               role="button"

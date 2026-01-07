@@ -8,7 +8,7 @@ const ServiceCard = ({ post }) => {
   return (
     <Link
       href={`/services/${id}`}
-      className="max-w-80  bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 group"
+      className="md:max-w-80  w-full bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 group"
     >
       {/* Image */}
       <figure className="relative  overflow-hidden">
@@ -17,7 +17,7 @@ const ServiceCard = ({ post }) => {
           height={192}
           src={image}
           alt={title}
-          className="w-80 h-58 bg-cover rounded-t-lg transition-transform duration-300 group-hover:scale-105"
+          className="md:w-80 w-full h-58 bg-cover rounded-t-lg transition-transform duration-300 group-hover:scale-105"
         />
 
         {/* Hover Overlay */}
@@ -34,7 +34,7 @@ const ServiceCard = ({ post }) => {
           <button className="bottom-0  rounded-full px-6">Learn More</button>
         </div>
       </div>
-      {/* Hover Overlay */}
+    
     </Link>
   );
 };
