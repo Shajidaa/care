@@ -1,14 +1,19 @@
 "use client";
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
-import Image from "next/image";
 import { showSuccess, showLoading, closeLoading } from "@/lib/toast";
 
-const ProfileDropdown = () => {
+const ProfileDropdown = ({ isMobile = false, onClose }) => {
   const { data: session, status } = useSession();
+
+  // Debug logging for mobile
+  if (isMobile) {
+    console.log('Mobile ProfileDropdown - Status:', status, 'Session:', session);
+  }
 
   // Handle sign out with toast
   const handleSignOut = async () => {
+    if (onClose) onClose();
     showLoading("Signing you out...");
     
     try {
@@ -17,7 +22,6 @@ const ProfileDropdown = () => {
         callbackUrl: "/" 
       });
       
-      // Note: This won't execute if redirect is true, but keeping for completeness
       closeLoading();
       showSuccess("Successfully signed out!");
     } catch (error) {
@@ -26,11 +30,132 @@ const ProfileDropdown = () => {
     }
   };
 
-  // Generate avatar from user's name or email
-  const getAvatarUrl = (user) => {
-    if (user?.image) return user.image;
-  };
+  // Mobile version for the slide-out menu
+  if (isMobile) {
+    // Debug: Always show both states for testing
+    return (
+      <div className="space-y-6">
+       
 
+        {/* Show loading state */}
+        {status === "loading" && (
+          <div className="space-y-4">
+            <div className="flex items-center gap-3 p-4 rounded-xl bg-base-200/50 animate-pulse">
+              <div className="w-12 h-12 rounded-full bg-base-300"></div>
+              <div className="flex-1 space-y-2">
+                <div className="h-4 bg-base-300 rounded w-3/4"></div>
+                <div className="h-3 bg-base-300 rounded w-1/2"></div>
+              </div>
+            </div>
+            <div className="space-y-2">
+              <div className="h-10 bg-base-300 rounded animate-pulse"></div>
+              <div className="h-10 bg-base-300 rounded animate-pulse"></div>
+            </div>
+          </div>
+        )}
+
+        {/* Show authenticated user menu */}
+        {(status === "authenticated" && session) && (
+          <div className="space-y-4">
+            {/* User Info Header */}
+            <div className="flex items-center gap-3 p-4 rounded-xl bg-gradient-to-r from-primary/5 to-secondary/5 border border-primary/10">
+              <div className="w-12 h-12 rounded-full ring-2 ring-primary/30 overflow-hidden bg-primary/10">
+                <img
+                  src={session?.user?.image || `https://ui-avatars.com/api/?name=${encodeURIComponent(session?.user?.name || 'User')}&background=random`}
+                  alt={session?.user?.name || "Profile"}
+                  width={48}
+                  height={48}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="font-semibold text-base-content truncate text-sm">
+                  {session?.user?.name || "User"}
+                </p>
+                <p className="text-xs text-base-content/60 truncate">
+                  {session?.user?.email}
+                </p>
+              </div>
+            </div>
+
+            {/* Account Menu Items */}
+            <div className="space-y-2">
+              <h3 className="text-xs font-semibold text-base-content/70 uppercase tracking-wider px-2">
+                Account
+              </h3>
+              
+              <Link
+                href="/profile"
+                onClick={onClose}
+                className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300 hover:bg-primary/10 hover:text-primary border border-transparent hover:border-primary/20"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+                <span>My Profile</span>
+              </Link>
+
+              <Link
+                href="/myBookings"
+                onClick={onClose}
+                className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300 hover:bg-primary/10 hover:text-primary border border-transparent hover:border-primary/20"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                </svg>
+                <span>My Bookings</span>
+              </Link>
+            </div>
+          </div>
+        )}
+
+        {/* ALWAYS SHOW SIGN OUT BUTTON FOR TESTING */}
+        <div className="pt-4 border-t border-base-300/50">
+        
+          <button
+            onClick={handleSignOut}
+            className="flex items-center justify-center gap-3 px-4 py-4 rounded-xl text-sm font-semibold transition-all duration-300 bg-red-50 text-red-600 hover:bg-red-100 hover:text-red-700 w-full border border-red-200 hover:border-red-300 shadow-sm hover:shadow-md active:scale-95"
+          >
+          
+            <span>Sign Out </span>
+          </button>
+        </div>
+
+        {/* Show guest user options when not authenticated */}
+        {status !== "authenticated" && (
+          <div className="space-y-4">
+            <h3 className="text-xs font-semibold text-base-content/70 uppercase tracking-wider px-2">
+              Get Started
+            </h3>
+            <div className="space-y-3">
+              <Link
+                href="/login"
+                onClick={onClose}
+                className="btn btn-primary w-full rounded-xl font-semibold text-sm py-3 flex items-center gap-2"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                </svg>
+                Login
+              </Link>
+              <Link
+                href="/register"
+                onClick={onClose}
+                className="btn btn-outline btn-primary w-full rounded-xl font-semibold text-sm py-3 flex items-center gap-2"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+                </svg>
+                Register
+              </Link>
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  // Desktop version
   return (
     <>
       {status === "authenticated" ? (
@@ -39,15 +164,13 @@ const ProfileDropdown = () => {
           <div
             tabIndex={0}
             role="button"
-            className="btn btn-ghost btn-circle avatar hover:scale-110 transition-all duration-300 hover:shadow-lg hover:shadow-primary/25"
+            className="btn btn-ghost btn-circle avatar hover:scale-110 transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 p-1"
           >
-            <div className="w-10 h-10 rounded-full ring-2 ring-primary/20 hover:ring-primary/40 transition-all duration-300">
+            <div className="w-9 h-9 rounded-full ring-2 ring-primary/20 hover:ring-primary/40 transition-all duration-300 overflow-hidden">
               <img
-                src={session?.user?.image}
+                src={session?.user?.image || `https://ui-avatars.com/api/?name=${encodeURIComponent(session?.user?.name || 'User')}&background=random`}
                 alt={session?.user?.name || "Profile"}
-                width={40}
-                height={40}
-                className="rounded-full object-cover"
+                className="w-full h-full object-cover"
               />
             </div>
           </div>
@@ -55,23 +178,24 @@ const ProfileDropdown = () => {
           {/* Dropdown Menu */}
           <ul
             tabIndex={0}
-            className="dropdown-content menu bg-base-100/95 backdrop-blur-md rounded-2xl z-[1] mt-3 w-64 p-4 shadow-2xl border border-base-300/50 animate-in slide-in-from-top-2 duration-200"
+            className="dropdown-content menu bg-base-100/98 backdrop-blur-xl rounded-2xl z-[100] mt-3 w-72 p-4 shadow-2xl border border-base-300/50"
           >
             {/* User Info Header */}
-            <li className="mb-3 px-2">
-              <div className="flex items-center gap-3 p-2 rounded-xl bg-base-200/50">
-                <div className="w-12 h-12 rounded-full ring-2 ring-primary/30">
+            <li className="mb-4 px-2">
+              <div className="flex items-center gap-3 p-3 rounded-xl bg-base-200/50">
+                <div className="w-12 h-12 rounded-full ring-2 ring-primary/30 overflow-hidden">
                   <img
-                    src={session?.user?.image}
+                    src={session?.user?.image || `https://ui-avatars.com/api/?name=${encodeURIComponent(session?.user?.name || 'User')}&background=random`}
                     alt={session?.user?.name || "Profile"}
-                    width={48}
-                    height={48}
-                    className="rounded-full object-cover"
+                    className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="font-semibold text-base-content truncate">
                     {session?.user?.name || "User"}
+                  </p>
+                  <p className="text-sm text-base-content/60 truncate">
+                    {session?.user?.email}
                   </p>
                 </div>
               </div>
@@ -86,76 +210,27 @@ const ProfileDropdown = () => {
             <li className="mb-1">
               <Link
                 href="/profile"
-                className="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium transition-all duration-300 hover:bg-primary/10 hover:text-primary hover:scale-105"
+                className="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium transition-all duration-300 hover:bg-primary/10 hover:text-primary hover:scale-[1.02] active:scale-95"
               >
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                  />
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                 </svg>
                 <span>My Profile</span>
               </Link>
             </li>
 
             {/* My Bookings Link */}
-            <li className="mb-1">
+            <li className="mb-3">
               <Link
                 href="/myBookings"
-                className="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium transition-all duration-300 hover:bg-primary/10 hover:text-primary hover:scale-105"
+                className="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium transition-all duration-300 hover:bg-primary/10 hover:text-primary hover:scale-[1.02] active:scale-95"
               >
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
-                  />
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                 </svg>
                 <span>My Bookings</span>
               </Link>
             </li>
-
-            {/* Settings Link */}
-            {/* <li className="mb-3">
-              <Link
-                href="/settings"
-                className="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium transition-all duration-300 hover:bg-primary/10 hover:text-primary hover:scale-105"
-              >
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
-                  />
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                  />
-                </svg>
-                <span>Settings</span>
-              </Link>
-            </li> */}
 
             {/* Divider */}
             <li className="mb-2">
@@ -166,20 +241,10 @@ const ProfileDropdown = () => {
             <li>
               <button
                 onClick={handleSignOut}
-                className="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium transition-all duration-300 hover:bg-error/10 hover:text-error hover:scale-105 w-full text-left"
+                className="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium transition-all duration-300 hover:bg-error/10 hover:text-error hover:scale-[1.02] active:scale-95 w-full text-left"
               >
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
-                  />
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                 </svg>
                 <span>Sign Out</span>
               </button>
@@ -187,20 +252,20 @@ const ProfileDropdown = () => {
           </ul>
         </div>
       ) : (
-        <>
+        <div className="flex items-center space-x-2">
           <Link
             href="/login"
-            className="btn btn-outline btn-primary btn-sm px-6 rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25"
+            className="btn btn-ghost btn-sm px-4 rounded-full font-semibold transition-all duration-300 hover:bg-primary/10 hover:text-primary"
           >
             Login
           </Link>
           <Link
             href="/register"
-            className="btn btn-outline btn-primary btn-sm px-6 rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25"
+            className="btn btn-primary btn-sm px-4 rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25"
           >
             Register
           </Link>
-        </>
+        </div>
       )}
     </>
   );

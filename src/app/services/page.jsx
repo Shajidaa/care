@@ -2,8 +2,7 @@
 import CommonTitle from "@/components/common/CommonTitle";
 import Container from "@/components/common/Container";
 import ServiceCard from "@/components/common/ServiceCard";
-import Image from "next/image";
-import Link from "next/link";
+
 
 import React, { useEffect, useState } from "react";
 
@@ -32,7 +31,7 @@ const ServicesPage = () => {
         des="Explore our range of professional care services"
       ></CommonTitle>
       <Container>
-        <div className=" grid items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 my-12">
+        <div className="grid items-center grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4  my-12">
           {posts.map((post, index) => (
             <ServiceCard key={index} post={post}></ServiceCard>
           ))}
